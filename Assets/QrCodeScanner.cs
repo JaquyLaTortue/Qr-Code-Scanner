@@ -13,7 +13,8 @@ public class QrCodeScanner : MonoBehaviour
     void Start()
     {
         Cam = new WebCamTexture();
-        GetComponent<Renderer>().material.mainTexture = Cam;
+        //GetComponent<Renderer>().material.mainTexture = Cam;
+        CamDisplay.texture = Cam;
         Cam.Play();
     }
 
