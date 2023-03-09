@@ -19,6 +19,7 @@ public class DisplayValues : MonoBehaviour
 
     void Update()
     {
-        tmp.text = ($"{gameObject.name}: {game.CalculateMarket(enterprise)}");
+        tmp.text = ($"Current Value: \n" +
+            $" {game.CalculateMarket(enterprise)}");
     }
 }
