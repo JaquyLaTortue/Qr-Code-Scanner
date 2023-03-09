@@ -22,9 +22,4 @@ public class QrCodeScanner : MonoBehaviour
     {
 
     }
-
-    public void DisplayCam()
-    {
-        Cam.Play();
-    }
 }
