@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-//using zxing;
+using ZXing;
 
 public class QrCodeScanner : MonoBehaviour
 {
-    public WebCamTexture Cam;
-
+    private WebCamTexture Cam;
 
     public RawImage CamDisplay;
     public Image Background;
 
-    public Quaternion baseRotation;
     public Transform camTr;
+
+    string QRCodeResult;
+
+    [SerializeField] TextMeshProUGUI textout;
 
     // Start is called before the first frame update
     void Start()
@@ -34,16 +37,9 @@ public class QrCodeScanner : MonoBehaviour
         CamDisplay.gameObject.SetActive(false);
         Background.gameObject.SetActive(false);
 
-        baseRotation = camTr.transform.rotation;
-        camTr.transform.rotation = baseRotation * Quaternion.AngleAxis(Cam.videoRotationAngle, Vector3.up);
+        StartCoroutine(Scanwait());
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void DisplayCam()
     {
         if (!CamDisplay.IsActive())
@@ -58,5 +54,39 @@ public class QrCodeScanner : MonoBehaviour
             Background.gameObject.SetActive(false);
             Cam.Stop();
         }
+    }
+
+    void scan()
+    {
+        try
+        {
+            IBarcodeReader barcodeReader = new BarcodeReader();
+            Result result = barcodeReader.Decode(Cam.GetPixels32(),Cam.width,Cam.height);
+            if (result != null)
+            {
+                //QRCodeResult = result.Text;
+                textout.text = result.Text;
+            }
+            else
+            {
+                //QRCodeResult = "Failed to read QrCode";
+                textout.text = "Failed to read QrCode";
+            }
+        }
+        catch
+        {
+            //QRCodeResult = "Failed in try";
+            textout.text = "Failed in try";
+
+        }
+        StartCoroutine(Scanwait());
+    }
+
+
+
+    public IEnumerator Scanwait()
+    {
+        yield return new WaitForSeconds(2f);
+        scan();
     }
 }
