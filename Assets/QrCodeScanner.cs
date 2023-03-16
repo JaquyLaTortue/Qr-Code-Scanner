@@ -7,7 +7,11 @@ using UnityEngine.UI;
 public class QrCodeScanner : MonoBehaviour
 {
     public WebCamTexture Cam;
+
+
     public RawImage CamDisplay;
+    public Image Background;
+
     public Quaternion baseRotation;
     public Transform camTr;
 
@@ -28,6 +32,7 @@ public class QrCodeScanner : MonoBehaviour
         Cam = new WebCamTexture(frontCamName, Screen.width, Screen.height);
         CamDisplay.texture = Cam;
         CamDisplay.gameObject.SetActive(false);
+        Background.gameObject.SetActive(false);
 
         baseRotation = camTr.transform.rotation;
         camTr.transform.rotation = baseRotation * Quaternion.AngleAxis(Cam.videoRotationAngle, Vector3.up);
@@ -44,11 +49,13 @@ public class QrCodeScanner : MonoBehaviour
         if (!CamDisplay.IsActive())
         {
             CamDisplay.gameObject.SetActive(true);
+            Background.gameObject.SetActive(true);
             Cam.Play();
         }
         else
         {
             CamDisplay.gameObject.SetActive(false);
+            Background.gameObject.SetActive(false);
             Cam.Stop();
         }
     }
