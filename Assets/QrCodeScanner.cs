@@ -14,7 +14,7 @@ public class QrCodeScanner : MonoBehaviour
 
     public Transform camTr;
 
-    string QRCodeResult;
+    public string QrCodeResult;
 
     [SerializeField] TextMeshProUGUI textout;
 
@@ -64,8 +64,9 @@ public class QrCodeScanner : MonoBehaviour
             Result result = barcodeReader.Decode(Cam.GetPixels32(),Cam.width,Cam.height);
             if (result != null)
             {
-                //QRCodeResult = result.Text;
+                //QRCodeResult = QrCodeResult.Text;
                 textout.text = result.Text;
+                QrCodeResult = result.Text;
             }
             else
             {
