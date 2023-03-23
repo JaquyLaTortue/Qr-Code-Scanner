@@ -9,6 +9,8 @@ public class Enterprise : MonoBehaviour
     public string size;
     public int value;
     public bool hasIncrease;
+    public float chanceToIncrease;
+    public float chanceToDecrease;
 
     // possibilities of value depending of the enterprise's size
     private List<int> littleValues = new List<int> { 15000, 16000, 17000, 18000, 19000, 20000 };
