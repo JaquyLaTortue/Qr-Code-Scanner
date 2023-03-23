@@ -271,12 +271,12 @@ public class Game : MonoBehaviour
                 }
             case ("RandomIncrease"):
                 {
-                    Increase(enterprises[Random.Range(0, enterprises.Length + 1)]); 
+                    Increase(enterprises[Random.Range(0, enterprises.Length)]); 
                     break;
                 }
             case ("RandomDecrease"):
                 {
-                    Decrease(enterprises[Random.Range(0, enterprises.Length + 1)]);
+                    Decrease(enterprises[Random.Range(0, enterprises.Length)]);
                     break;
                 }
             case ("AppleIncrease"):

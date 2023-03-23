@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3da5a08ca6966c14d9131f14c6ffcbef
+  - enabled: 1
+    path: Assets/Scenes/ChoosePDG.unity
+    guid: 7afe529e75e6c2e47ab00a497346bd8e
+  - enabled: 1
+    path: "Assets/Scenes/L\xE9o.unity"
+    guid: 070ebe3e204bf8e45bcc9d45f7e19cce
+  - enabled: 0
     path: Assets/Scenes/Alban.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
