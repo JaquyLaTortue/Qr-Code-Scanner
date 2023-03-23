@@ -11,6 +11,9 @@ public class Game : MonoBehaviour
     public List<int> increases = new() { 500, 1000, 2000, 3000, 4000, 5000 };
     public List<int> decreases = new() { -500, -1000, -2000, -3000, -4000, -5000 };
 
+    public GameObject Scanner;
+    string ResultToScan;
+
     void Start()
     {
         // get all enterprises
@@ -193,7 +196,7 @@ public class Game : MonoBehaviour
         }
         enterprise.hasIncrease = false;
     }
-    
+
     public void Percentage(Enterprise enterprise)
     {
         if (enterprise.value >= 30000 && enterprise.value <= 40000)
@@ -322,6 +325,101 @@ public class Game : MonoBehaviour
                         }
                 }
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        ResultToScan = Scanner.GetComponent<QrCodeScanner>().QrCodeResult;
+    }
+    void CardFunctionLaunching()
+    {
+        switch (ResultToScan)
+        {
+            case ("Failed"):
+                {
+                    break;
+                }
+
+            case ("CRACK CA DEFOURRAILLE"):
+                {
+
+                    Crack();
+                    break;
+                }
+            case ("RandomIncrease"):
+                {
+                    Increase(enterprises[Random.Range(0, 7)]); 
+                    break;
+                }
+            case ("RandomDecrease"):
+                {
+                    Decrease(enterprises[Random.Range(0, 7)]);
+                    break;
+                }
+            case ("AppleIncrease"):
+                {
+                    break;
+                }
+            case ("AppleDecrease"):
+                {
+                    break;
+                }
+            case ("MicrosoftIncrease"):
+                {
+                    break;
+                }
+            case ("MicrosoftDecrease"):
+                {
+                    break;
+                }
+            case ("MetaIncrease"):
+                {
+                    break;
+                }
+            case ("MetaDecrease"):
+                {
+                    break;
+                }
+            case ("AmazonIncrease"):
+                {
+                    break;
+                }
+            case ("AmazonDecrease"):
+                {
+                    break;
+                }
+            case ("TeslaIncrease"):
+                {
+                    break;
+                }
+            case ("TeslaDecrease"):
+                {
+                    break;
+                }
+            case ("GoogleIncrease"):
+                {
+                    break;
+                }
+            case ("GoogleDecrease"):
+                {
+                    break;
+                }
+
+            default:
+                {
+                    Debug.Log("QR code non valide");
+                    break;
+                }
+            
+        }
+    }
+
+    void Crack()
+    {
+        for (int i = 0; i < enterprises.Length; i++)
+        {
+
         }
     }
 }

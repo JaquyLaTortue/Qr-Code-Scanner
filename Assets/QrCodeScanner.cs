@@ -71,7 +71,7 @@ public class QrCodeScanner : MonoBehaviour
             else
             {
                 //QRCodeResult = "Failed to read QrCode";
-                textout.text = "Failed to read QrCode";
+                textout.text = "Failed";
             }
         }
         catch
