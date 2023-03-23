@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enterprise
+  - Apple
+  - Amazon
+  - Microsoft
+  - Meta
+  - Tesla
+  - Google
   layers:
   - Default
   - TransparentFX

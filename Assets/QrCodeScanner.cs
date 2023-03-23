@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
 
 public class QrCodeScanner : MonoBehaviour
 {
+    public Game game;
+
     private WebCamTexture Cam;
 
     public RawImage CamDisplay;
-    public Image Background;
 
     public Transform camTr;
-
-    public string QrCodeResult;
 
     [SerializeField] TextMeshProUGUI textout;
 
     // Start is called before the first frame update
     void Start()
     {
+        game = GetComponentInParent<Game>();
+
         string frontCamName = null;
         var webCamDevices = WebCamTexture.devices;
         foreach (var camDevice in webCamDevices)
@@ -35,7 +37,6 @@ public class QrCodeScanner : MonoBehaviour
         Cam = new WebCamTexture(frontCamName, Screen.width, Screen.height);
         CamDisplay.texture = Cam;
         CamDisplay.gameObject.SetActive(false);
-        Background.gameObject.SetActive(false);
 
         StartCoroutine(Scanwait());
 
@@ -45,13 +46,11 @@ public class QrCodeScanner : MonoBehaviour
         if (!CamDisplay.IsActive())
         {
             CamDisplay.gameObject.SetActive(true);
-            Background.gameObject.SetActive(true);
             Cam.Play();
         }
         else
         {
             CamDisplay.gameObject.SetActive(false);
-            Background.gameObject.SetActive(false);
             Cam.Stop();
         }
     }
@@ -66,7 +65,7 @@ public class QrCodeScanner : MonoBehaviour
             {
                 //QRCodeResult = QrCodeResult.Text;
                 textout.text = result.Text;
-                QrCodeResult = result.Text;
+                game.CardFunctionLaunching(result.Text);
             }
             else
             {

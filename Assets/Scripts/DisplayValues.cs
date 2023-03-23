@@ -6,19 +6,23 @@ using UnityEngine;
 public class DisplayValues : MonoBehaviour
 {
     public Game game;
-    public TMP_Text tmp;
+    public TMP_Text value;
+    public TMP_Text chanceUp;
+    public TMP_Text chanceDown;
     public Enterprise enterprise;
 
     void Start()
     {
         game = GetComponentInParent<Game>();
-        tmp = GetComponentInChildren<TMP_Text>();
         enterprise = GetComponent<Enterprise>();
     }
 
     void Update()
     {
-        tmp.text = ($"Current Value: \n" +
+        value.text = ($"Current Value: \n" +
             $" {game.CalculateMarket(enterprise)}");
+
+        chanceUp.text = ($"{enterprise.chanceToIncrease * 100}% to increase");
+        chanceDown.text = ($"{enterprise.chanceToDecrease * 100}% to decrease");
     }
 }
