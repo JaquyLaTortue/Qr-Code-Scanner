@@ -36,23 +36,10 @@ public class QrCodeScanner : MonoBehaviour
 
         Cam = new WebCamTexture(frontCamName, Screen.width, Screen.height);
         CamDisplay.texture = Cam;
-        CamDisplay.gameObject.SetActive(false);
+        CamDisplay.gameObject.SetActive(true);
+        Cam.Play();
 
         StartCoroutine(Scanwait());
-
-    }
-    public void DisplayCam()
-    {
-        if (!CamDisplay.IsActive())
-        {
-            CamDisplay.gameObject.SetActive(true);
-            Cam.Play();
-        }
-        else
-        {
-            CamDisplay.gameObject.SetActive(false);
-            Cam.Stop();
-        }
     }
 
     void scan()
