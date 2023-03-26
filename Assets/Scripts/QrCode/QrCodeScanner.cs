@@ -9,6 +9,7 @@ using ZXing;
 public class QrCodeScanner : MonoBehaviour
 {
     public Game game;
+    public GameObject popUp;
 
     private WebCamTexture Cam;
 
@@ -16,9 +17,9 @@ public class QrCodeScanner : MonoBehaviour
 
     public Transform camTr;
 
-    [SerializeField] TextMeshProUGUI textout;
+    public bool canScan;
+    public bool isAfterPopUp;
 
-    // Start is called before the first frame update
     void Start()
     {
         game = GetComponentInParent<Game>();
@@ -39,41 +40,67 @@ public class QrCodeScanner : MonoBehaviour
         CamDisplay.gameObject.SetActive(true);
         Cam.Play();
 
-        StartCoroutine(Scanwait());
+        canScan = true;
+        isAfterPopUp = false;
+        StartCoroutine(ScanWait());
     }
 
-    void scan()
+    public void Scan()
     {
-        try
+        if (canScan)
         {
-            IBarcodeReader barcodeReader = new BarcodeReader();
-            Result result = barcodeReader.Decode(Cam.GetPixels32(),Cam.width,Cam.height);
-            if (result != null)
+            try
             {
-                //QRCodeResult = QrCodeResult.Text;
-                textout.text = result.Text;
-                game.CardFunctionLaunching(result.Text);
+                if (!isAfterPopUp)
+                {
+                    IBarcodeReader barcodeReader = new BarcodeReader();
+                    Result result = barcodeReader.Decode(Cam.GetPixels32(), Cam.width, Cam.height);
+                    if (result != null)
+                    {
+                        //QRCodeResult = QrCodeResult.Text;
+                        canScan = false;
+                        Debug.Log(result.Text);
+                        game.CardFunctionLaunching(result.Text);
+                        popUp.SetActive(true);
+                    }
+                    else
+                    {
+                        //QRCodeResult = "Failed to read QrCode";
+                        Debug.Log("Failed");
+                    }
+                }
+                else
+                {
+                    IBarcodeReader barcodeReader = new BarcodeReader();
+                    Result result = null;
+                    if (result != null)
+                    {
+                        //QRCodeResult = QrCodeResult.Text;
+                        canScan = false;
+                        Debug.Log(result.Text);
+                        game.CardFunctionLaunching(result.Text);
+                        popUp.SetActive(true);
+                    }
+                    else
+                    {
+                        //QRCodeResult = "Failed to read QrCode";
+                        Debug.Log("Failed");
+                    }
+                }
             }
-            else
+            catch
             {
-                //QRCodeResult = "Failed to read QrCode";
-                textout.text = "Failed";
+                //QRCodeResult = "Failed in try";
+                Debug.Log("Failed in try");
             }
+            StartCoroutine(ScanWait());
         }
-        catch
-        {
-            //QRCodeResult = "Failed in try";
-            textout.text = "Failed in try";
-
-        }
-        StartCoroutine(Scanwait());
     }
 
-
-
-    public IEnumerator Scanwait()
+    public IEnumerator ScanWait()
     {
+        isAfterPopUp = false;
         yield return new WaitForSeconds(2f);
-        scan();
+        Scan();
     }
 }
