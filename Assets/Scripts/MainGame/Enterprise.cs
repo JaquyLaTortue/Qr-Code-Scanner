@@ -49,4 +49,9 @@ public class Enterprise : MonoBehaviour
         // determine the virtual previous evolution
         hasIncrease = Random.Range(0, 2) == 1;
     }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
 }

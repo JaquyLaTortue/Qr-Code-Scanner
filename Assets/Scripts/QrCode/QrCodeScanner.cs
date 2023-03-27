@@ -1,7 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using ZXing;
@@ -35,7 +32,7 @@ public class QrCodeScanner : MonoBehaviour
             }
         }
 
-        Cam = new WebCamTexture(frontCamName, Screen.width, Screen.height);
+        Cam = new WebCamTexture(frontCamName, 500, 500);
         CamDisplay.texture = Cam;
         CamDisplay.gameObject.SetActive(true);
         Cam.Play();

@@ -276,14 +276,14 @@ public class Game : MonoBehaviour
                 {
                     Enterprise randomEnterprise = enterprises[Random.Range(0, enterprises.Length)];
                     Increase(randomEnterprise);
-                    textResult.result.text = $"{randomEnterprise} increased";
+                    textResult.result.text = $"{randomEnterprise.name} increased";
                     break;
                 }
             case ("RandomDecrease"):
                 {
                     Enterprise randomEnterprise = enterprises[Random.Range(0, enterprises.Length)];
                     Decrease(randomEnterprise);
-                    textResult.result.text = $"{randomEnterprise} decreased";
+                    textResult.result.text = $"{randomEnterprise.name} decreased";
                     break;
                 }
             case ("AppleIncrease"):
