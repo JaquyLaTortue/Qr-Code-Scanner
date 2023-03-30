@@ -19,10 +19,10 @@ public class DisplayValues : MonoBehaviour
 
     void Update()
     {
-        value.text = ($"Current Value: \n" +
+        value.text = ($"Valeur actuelle: \n" +
             $" {game.CalculateMarket(enterprise)}");
 
-        chanceUp.text = ($"{enterprise.chanceToIncrease * 100}% to increase");
-        chanceDown.text = ($"{enterprise.chanceToDecrease * 100}% to decrease");
+        chanceUp.text = ($"{enterprise.chanceToIncrease * 100}% d'augmenter");
+        chanceDown.text = ($"{enterprise.chanceToDecrease * 100}% de baisser");
     }
 }

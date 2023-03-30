@@ -22,12 +22,12 @@ public class DispatchPlayer : MonoBehaviour
             string tempName = pdg[randomI];
             pdg.Remove(pdg[randomI]);
             pdgName.text = $"{tempName} !";
-            buttonText.text = "Next Player";
+            buttonText.text = "Joueur suivant";
 
             numberOfPlayer--;
             if (numberOfPlayer == 0)
             {
-                buttonText.text = "Play";
+                buttonText.text = "Jouer";
             }
         }
         else
@@ -57,7 +57,7 @@ public class DispatchPlayer : MonoBehaviour
     public void Back()
     {
         mask.SetActive(true);
-        buttonText.text = "First Player";
+        buttonText.text = "Premier joueur";
         pdgName.text = "";
         pdg = new List<string> { "Jeff Bezos", "Steve Jobs", "Bill Gates", "Elon Musk", "Larry Page", "Mark Zuckerberg" };
     }

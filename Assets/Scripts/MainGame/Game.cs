@@ -269,105 +269,105 @@ public class Game : MonoBehaviour
             case ("CRACK CA DEFOURRAILLE"):
                 {
                     Crack();
-                    textResult.result.text = "All enterprises decreased 10 000$";
+                    textResult.result.text = "Toutes les entreprises perdent \n 10 000$";
                     break;
                 }
             case ("RandomIncrease"):
                 {
                     Enterprise randomEnterprise = enterprises[Random.Range(0, enterprises.Length)];
                     Increase(randomEnterprise);
-                    textResult.result.text = $"{randomEnterprise.name} increased";
+                    textResult.result.text = $"{randomEnterprise.name} a augmenté";
                     break;
                 }
             case ("RandomDecrease"):
                 {
                     Enterprise randomEnterprise = enterprises[Random.Range(0, enterprises.Length)];
                     Decrease(randomEnterprise);
-                    textResult.result.text = $"{randomEnterprise.name} decreased";
+                    textResult.result.text = $"{randomEnterprise.name} a baissé";
                     break;
                 }
             case ("AppleIncrease"):
                 {
                     Enterprise apple = GameObject.FindGameObjectWithTag("Apple").GetComponent<Enterprise>();
                     Increase(apple);
-                    textResult.result.text = $"Apple increased";
+                    textResult.result.text = $"Apple a augmenté";
                     break;
                 }
             case ("AppleDecrease"):
                 {
                     Enterprise apple = GameObject.FindGameObjectWithTag("Apple").GetComponent<Enterprise>();
                     Decrease(apple);
-                    textResult.result.text = $"Apple decreased";
+                    textResult.result.text = $"Apple a baissé";
                     break;
                 }
             case ("MicrosoftIncrease"):
                 {
                     Enterprise microsoft = GameObject.FindGameObjectWithTag("Microsoft").GetComponent<Enterprise>();
                     Increase(microsoft);
-                    textResult.result.text = $"Microsoft increased";
+                    textResult.result.text = $"Microsoft a augmenté";
                     break;
                 }
             case ("MicrosoftDecrease"):
                 {
                     Enterprise microsoft = GameObject.FindGameObjectWithTag("Microsoft").GetComponent<Enterprise>();
                     Decrease(microsoft);
-                    textResult.result.text = $"Microsoft decreased";
+                    textResult.result.text = $"Microsoft a baissé";
                     break;
                 }
             case ("MetaIncrease"):
                 {
                     Enterprise meta = GameObject.FindGameObjectWithTag("Meta").GetComponent<Enterprise>();
                     Increase(meta);
-                    textResult.result.text = $"Meta increased";
+                    textResult.result.text = $"Meta a augmenté";
                     break;
                 }
             case ("MetaDecrease"):
                 {
                     Enterprise meta = GameObject.FindGameObjectWithTag("Meta").GetComponent<Enterprise>();
                     Decrease(meta);
-                    textResult.result.text = $"Meta decreased";
+                    textResult.result.text = $"Meta a baissé";
                     break;
                 }
             case ("AmazonIncrease"):
                 {
                     Enterprise amazon = GameObject.FindGameObjectWithTag("Amazon").GetComponent<Enterprise>();
                     Increase(amazon);
-                    textResult.result.text = $"Amazon increased";
+                    textResult.result.text = $"Amazon a augmenté";
                     break;
                 }
             case ("AmazonDecrease"):
                 {
                     Enterprise amazon = GameObject.FindGameObjectWithTag("Amazon").GetComponent<Enterprise>();
                     Decrease(amazon);
-                    textResult.result.text = $"Amazon decreased";
+                    textResult.result.text = $"Amazon a baissé";
                     break;
                 }
             case ("TeslaIncrease"):
                 {
                     Enterprise tesla = GameObject.FindGameObjectWithTag("Tesla").GetComponent<Enterprise>();
                     Increase(tesla);
-                    textResult.result.text = $"Tesla increased";
+                    textResult.result.text = $"Tesla a augmenté";
                     break;
                 }
             case ("TeslaDecrease"):
                 {
                     Enterprise tesla = GameObject.FindGameObjectWithTag("Tesla").GetComponent<Enterprise>();
                     Decrease(tesla);
-                    textResult.result.text = $"Tesla decreased";
+                    textResult.result.text = $"Tesla a baissé";
                     break;
                 }
             case ("GoogleIncrease"):
                 {
                     Enterprise google = GameObject.FindGameObjectWithTag("Google").GetComponent<Enterprise>();
                     Increase(google);
-                    textResult.result.text = $"Google increased";
+                    textResult.result.text = $"Google a augmenté";
                     break;
                 }
             case ("GoogleDecrease"):
                 {
                     Enterprise google = GameObject.FindGameObjectWithTag("Google").GetComponent<Enterprise>();
                     Decrease(google);
-                    textResult.result.text = $"Google decreased";
+                    textResult.result.text = $"Google a baissé";
                     break;
                 }
             default:

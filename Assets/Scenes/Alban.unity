@@ -919,11 +919,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf0c86c793da2f4eb6fa7268f4498db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  popUp: {fileID: 0}
   CamDisplay: {fileID: 1006091192}
-  Background: {fileID: 515138577}
   camTr: {fileID: 1006091191}
-  QrCodeResult: 
-  textout: {fileID: 772904887}
+  canScan: 0
+  isAfterPopUp: 0
 --- !u!224 &1748982840
 RectTransform:
   m_ObjectHideFlags: 0

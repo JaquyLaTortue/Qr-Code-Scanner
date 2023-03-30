@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: Jouer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -943,6 +943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79df24ae66f04464296b8c1ad5e011f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textResult: {fileID: 0}
   enterprises: []
   increases: f4010000e8030000d0070000b80b0000a00f000088130000
   decreases: 0cfeffff18fcffff30f8ffff48f4ffff60f0ffff78ecffff
