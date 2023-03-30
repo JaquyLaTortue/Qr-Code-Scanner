@@ -7,6 +7,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public PopUp textResult;
+    public PopUpQuit popUpQuit;
 
     public Enterprise[] enterprises;
 
@@ -20,6 +21,11 @@ public class Game : MonoBehaviour
         enterprises = GetComponentsInChildren<Enterprise>();
 
         NextTour();
+    }
+
+    public void QuitGame()
+    {
+        popUpQuit.gameObject.SetActive(true);
     }
 
     public void NextTour()
