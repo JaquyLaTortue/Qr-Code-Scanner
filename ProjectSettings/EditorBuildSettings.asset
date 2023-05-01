@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 070ebe3e204bf8e45bcc9d45f7e19cce
-  - enabled: 0
-    path: Assets/Scenes/Alban.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

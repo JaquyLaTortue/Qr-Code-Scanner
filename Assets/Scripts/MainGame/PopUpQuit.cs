@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PopUpQuit : MonoBehaviour
 {
-    void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ClosePopUp()
+    {
+        gameObject.SetActive(false);
     }
 }
